@@ -1,4 +1,6 @@
-﻿using Archysoft.D1.Model.Services.Abstract;
+﻿using Archysoft.D1.Model.Repositories.Abstract;
+using Archysoft.D1.Model.Repositories.Concrete;
+using Archysoft.D1.Model.Services.Abstract;
 using Archysoft.D1.Model.Services.Concrete;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,6 +25,7 @@ namespace Archysoft.D1.Web.Api
             services.AddTransient<IAuthService, AuthService>();
 
             //Repositories
+            services.AddTransient<IUserRepository, UserRepository>();
 
             services.AddMvc();
         }

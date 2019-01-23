@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Runtime.InteropServices.ComTypes;
-using Archysoft.D1.Model.Auth;
+using Archysoft.D1.Model.Extensions;
 
 namespace Archysoft.D1.Web.Api.Model
 {
