@@ -12,4 +12,9 @@
     <ProjectReference Include="..\Archysoft.D1.Data\Archysoft.D1.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Repositories\Abstract\" />
+    <Folder Include="Repositories\Concrete\" />
+  </ItemGroup>
+
 </Project>
