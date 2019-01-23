@@ -2,6 +2,6 @@
 {
     public class Routes
     {
-        public const string Login = "login";
+        public const string Login = "auth/login";
     }
 }
