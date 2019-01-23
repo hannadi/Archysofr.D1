@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices.ComTypes;
+﻿using System;
+using System.Runtime.InteropServices.ComTypes;
 using Archysoft.D1.Model.Auth;
 
 namespace Archysoft.D1.Web.Api.Model
@@ -8,6 +9,13 @@ namespace Archysoft.D1.Web.Api.Model
         public int Status { get; set; }
         public string Description { get; set; }
         public long Timestamp { get; set; }
+
+        public ApiResponse()
+        {
+            Status = 1;
+            Description = "Success";
+            Timestamp = DateTime.UtcNow.ConvertToTimeStamp();
+        }
     }
 
     public class ApiResponse<T> : ApiResponse where T : class
