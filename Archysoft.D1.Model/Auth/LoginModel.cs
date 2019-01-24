@@ -13,8 +13,8 @@ namespace Archysoft.D1.Model.Auth
     {
         public LoginModelValidator()
         {
-            RuleFor(x => x.Login).NotNull().NotEmpty();
-            RuleFor(x => x.Password).NotNull().NotEmpty();
+            RuleFor(x => x.Login).NotEmpty().EmailAddress();
+            RuleFor(x => x.Password).NotEmpty();
         }
     }
 }
