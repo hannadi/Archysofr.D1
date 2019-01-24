@@ -4,10 +4,10 @@ using Archysoft.D1.Model.Repositories.Concrete;
 using Archysoft.D1.Model.Services.Abstract;
 using Archysoft.D1.Model.Services.Concrete;
 using Archysoft.D1.Web.Api.Utilities;
+using Archysoft.D1.Web.Api.Utilities.Filtres;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -30,7 +30,12 @@ namespace Archysoft.D1.Web.Api
             //Repositories
             services.AddTransient<IUserRepository, UserRepository>();
 
-            services.AddMvc().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<LoginModel>());
+            services.AddMvc(
+                config =>
+                {
+                    config.Filters.Add(new ValidateModelStateFilter());
+
+                }).AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<LoginModel>());
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
