@@ -7,7 +7,7 @@ namespace Archysoft.D1.Model.Repositories.Concrete
     {
         public User Get(string email, string password)
         {
-            throw new System.NotImplementedException();
+            return  new User();
         }
     }
 }
