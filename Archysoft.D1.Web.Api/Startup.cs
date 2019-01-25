@@ -1,4 +1,5 @@
-﻿using Archysoft.D1.Data;
+﻿using System;
+using Archysoft.D1.Data;
 using Archysoft.D1.Model.Auth;
 using Archysoft.D1.Model.Repositories.Abstract;
 using Archysoft.D1.Model.Repositories.Concrete;
@@ -11,6 +12,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 
 namespace Archysoft.D1.Web.Api
 {
@@ -25,6 +27,12 @@ namespace Archysoft.D1.Web.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(Configuration)
+                .CreateLogger();
+            AppDomain.CurrentDomain.ProcessExit += (s, e) => Log.CloseAndFlush();
+            services.AddSingleton(Log.Logger);
+
             services.AddDbContext<DataContext>();
 
             services.AddMvc(
