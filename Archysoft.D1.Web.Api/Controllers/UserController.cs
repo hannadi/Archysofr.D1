@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Archysoft.D1.Model.Services.Abstract;
+using Archysoft.D1.Model.Users;
 using Archysoft.D1.Web.Api.Model;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,8 +19,10 @@ namespace Archysoft.D1.Web.Api.Controllers
         [Route(Routes.Users)]
         public ApiResponse<List<UserGridModel>> GetUsers()
         {
-            List <UserGridModel> = _userService.Get();
-            return new ApiResponse<List<UserGridModel>>;
+            List<UserGridModel> gridModels = _userService.Get();
+            return new ApiResponse<List<UserGridModel>>(gridModels);
         }
+
+
     }
 }

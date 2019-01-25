@@ -1,7 +1,10 @@
-﻿namespace Archysoft.D1.Model.Services.Abstract
+﻿using System.Collections.Generic;
+using Archysoft.D1.Model.Users;
+
+namespace Archysoft.D1.Model.Services.Abstract
 {
     public interface IUserService
     {
-        void Get();
+        List<UserGridModel> Get();
     }
 }
