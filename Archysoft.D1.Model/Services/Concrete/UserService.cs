@@ -4,5 +4,9 @@ namespace Archysoft.D1.Model.Services.Concrete
 {
     public class UserService : IUserService
     {
+        public void Get()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

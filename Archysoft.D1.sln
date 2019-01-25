@@ -5,17 +5,17 @@ VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{FC8E06E9-AB1C-4433-8DC4-21D7FD4B1A83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archysoft.D1.Web.Api", "Archysoft.D1.Web.Api\Archysoft.D1.Web.Api.csproj", "{CB702696-33EA-4C4C-9705-0A69A05CBAA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Archysoft.D1.Web.Api", "Archysoft.D1.Web.Api\Archysoft.D1.Web.Api.csproj", "{CB702696-33EA-4C4C-9705-0A69A05CBAA9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{EE645E05-E2BB-4C13-9F3E-3E9D95544322}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{E59492E9-C9FB-49E4-889E-983A2BB71A46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archysoft.D1.Data", "Archysoft.D1.Data\Archysoft.D1.Data.csproj", "{49630490-D121-48FF-BBDC-2EF0E3990633}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Archysoft.D1.Data", "Archysoft.D1.Data\Archysoft.D1.Data.csproj", "{49630490-D121-48FF-BBDC-2EF0E3990633}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{563507DE-828E-4BCD-A069-53DAE172ABAE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{563507DE-828E-4BCD-A069-53DAE172ABAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archysoft.D1.Model", "Archysoft.D1.Model\Archysoft.D1.Model.csproj", "{73F7CFDF-0692-48B1-973E-2C51A169BA61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Archysoft.D1.Model", "Archysoft.D1.Model\Archysoft.D1.Model.csproj", "{73F7CFDF-0692-48B1-973E-2C51A169BA61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
