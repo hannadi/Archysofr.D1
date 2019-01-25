@@ -1,4 +1,5 @@
-﻿using Archysoft.D1.Model.Auth;
+﻿using Archysoft.D1.Data;
+using Archysoft.D1.Model.Auth;
 using Archysoft.D1.Model.Repositories.Abstract;
 using Archysoft.D1.Model.Repositories.Concrete;
 using Archysoft.D1.Model.Services.Abstract;
@@ -24,11 +25,7 @@ namespace Archysoft.D1.Web.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //Services
-            services.AddTransient<IAuthService, AuthService>();
-
-            //Repositories
-            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddDbContext<DataContext>();
 
             services.AddMvc(
                 config =>
@@ -36,13 +33,22 @@ namespace Archysoft.D1.Web.Api
                     config.Filters.Add(new ValidateModelStateFilter());
 
                 }).AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<LoginModel>());
+
+
+            //Services
+            services.AddTransient<IAuthService, AuthService>();
+
+            //Repositories
+            services.AddTransient<IDatabaseInitializator, DatabaseInitializator>();
+            services.AddTransient<IUserRepository, UserRepository>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IDatabaseInitializator databaseInitializator)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                databaseInitializator.Initialize();
             }
             else
             {
