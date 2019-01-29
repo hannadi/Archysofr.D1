@@ -27,6 +27,8 @@ namespace Archysoft.D1.Web.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DataContext>();
+
             Log.Logger = new LoggerConfiguration()
                 .ReadFrom.Configuration(Configuration)
                 .CreateLogger();
@@ -45,6 +47,7 @@ namespace Archysoft.D1.Web.Api
 
             //Services
             services.AddTransient<IAuthService, AuthService>();
+            services.AddTransient<IUserService, UserService>();
 
             //Repositories
             services.AddTransient<IDatabaseInitializator, DatabaseInitializator>();

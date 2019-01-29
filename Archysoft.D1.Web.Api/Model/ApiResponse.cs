@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Archysoft.D1.Model.Extensions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
@@ -27,7 +28,20 @@ namespace Archysoft.D1.Web.Api.Model
 
         public ApiResponse(ModelStateDictionary modelState)
         {
-            this.modelState = modelState;
+            if (modelState == null) return;
+
+            Status = 1;
+            Timestamp = DateTime.Now.ConvertToTimeStamp();
+
+            var validationKeys = modelState.Keys.Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
+            foreach (var validationKey in validationKeys)
+            {
+                var property = modelState[validationKey];
+                if (property.ValidationState == ModelValidationState.Invalid)
+                {
+                    Description = property.Errors.FirstOrDefault()?.ErrorMessage;
+                }
+            }
         }
     }
 
