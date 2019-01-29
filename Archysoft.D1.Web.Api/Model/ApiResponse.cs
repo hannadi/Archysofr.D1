@@ -15,6 +15,12 @@ namespace Archysoft.D1.Web.Api.Model
             Description = "Success";
             Timestamp = DateTime.UtcNow.ConvertToTimeStamp();
         }
+
+        public ApiResponse(int status, string message)
+        {
+            Status = status;
+            Description = message;
+        }
     }
 
     public class ApiResponse<T> : ApiResponse where T : class
