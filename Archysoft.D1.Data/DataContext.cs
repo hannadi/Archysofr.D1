@@ -17,7 +17,11 @@ namespace Archysoft.D1.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
-
+            var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            var connection = environment == "Development"
+                ? _configuration.GetConnectionString("DataContext")
+                : Environment.GetEnvironmentVariable("ARCHYSOFT_DEMO_DATACONTEXT") ?? "";
+            builder.UseSqlServer(connection);
         }
     }
 }
