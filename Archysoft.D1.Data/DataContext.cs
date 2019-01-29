@@ -20,7 +20,7 @@ namespace Archysoft.D1.Data
             var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             var connection = environment == "Development"
                 ? _configuration.GetConnectionString("DataContext")
-                : Environment.GetEnvironmentVariable("ARCHYSOFT_DEMO_DATACONTEXT") ?? "";
+                : Environment.GetEnvironmentVariable("ARCHYSOFT_D1_DATACONTEXT") ?? "";
             builder.UseSqlServer(connection);
         }
     }
