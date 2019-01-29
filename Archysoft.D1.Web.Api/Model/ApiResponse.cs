@@ -1,10 +1,13 @@
 ﻿using System;
 using Archysoft.D1.Model.Extensions;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Archysoft.D1.Web.Api.Model
 {
     public class ApiResponse
     {
+        private ModelStateDictionary modelState;
+
         public int Status { get; set; }
         public string Description { get; set; }
         public long Timestamp { get; set; }
@@ -20,6 +23,11 @@ namespace Archysoft.D1.Web.Api.Model
         {
             Status = status;
             Description = message;
+        }
+
+        public ApiResponse(ModelStateDictionary modelState)
+        {
+            this.modelState = modelState;
         }
     }
 

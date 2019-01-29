@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Archysoft.D1.Data;
 using Archysoft.D1.Data.Entities;
 using Archysoft.D1.Model.Repositories.Abstract;
@@ -16,7 +17,8 @@ namespace Archysoft.D1.Model.Repositories.Concrete
 
         public User Get(string email, string password)
         {
-            return new User();
+            throw new InvalidOperationException("Test");
+            //return new User();
         }
 
         public List<User> Get()
