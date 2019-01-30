@@ -10,6 +10,8 @@ namespace Archysoft.D1.Data
     {
         private readonly IConfiguration _configuration;
 
+        public DbSet<UserProfile> UserProfiles { get; set; }
+
         public DataContext(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -22,6 +24,11 @@ namespace Archysoft.D1.Data
                 ? _configuration.GetConnectionString("DataContext")
                 : Environment.GetEnvironmentVariable("ARCHYSOFT_D1_DATACONTEXT") ?? "";
             builder.UseSqlServer(connection);
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
         }
     }
 }

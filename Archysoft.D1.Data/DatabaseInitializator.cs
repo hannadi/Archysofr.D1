@@ -1,6 +1,7 @@
 ﻿using Archysoft.D1.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Archysoft.D1.Data
 {
@@ -18,6 +19,13 @@ namespace Archysoft.D1.Data
         public void Initialize()
         {
             _dataContext.Database.Migrate();
+            if (!_dataContext.Users.Any())
+            {
+                var user = new User
+                {
+
+                };
+            }
 
         }
     }
