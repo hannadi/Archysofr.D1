@@ -47,7 +47,7 @@ namespace Archysoft.D1.Web.Api
 
             //Services
             services.AddTransient<IAuthService, AuthService>();
-            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IUserService, UsersService>();
 
             //Repositories
             services.AddTransient<IDatabaseInitializator, DatabaseInitializator>();
